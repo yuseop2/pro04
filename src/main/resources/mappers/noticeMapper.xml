@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="notice">
+	<select id="noticeList" resultType="com.myshop.dto.NoticeDTO">
+		select * from notice order by resdate desc
+	</select>
+	<select id="noticeDetail" resultType="com.myshop.dto.NoticeDTO">
+		select * from notice where no = #{no}
+	</select>
+	<insert id="noticeInsert">
+		insert into notice(title, content, author) values (#{title}, #{content}, #{author}) 
+	</insert>
+	<update id="noticeUpdate">
+		update notice set title = #{title} , content = #{content} , author = #{author}
+	</update>
+	<delete id="noticeDelete">
+		delete notice where no = #{no}
+	</delete>	
+	<!-- 글수 카운트
+	<select id="totalCount" resultType="integer">
+		select count(*) from notice
+	</select>
+	
+	방문 카운트 업!
+	<update id="countUp">
+		update notice set readcnt=readcnt+1 where no=#{no}
+	</update>	
+	 -->		
+	
+</mapper>
+<!-- namespace나 해당 명령의 id는 중복되면 절대 안됨 -->
