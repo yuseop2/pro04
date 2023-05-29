@@ -12,11 +12,10 @@ public class DTOTest {
 	@Test
 	public void testDTO() {
 		SampleDTO sample = new SampleDTO();
-		sample.setField1("ÀÌÀ¯¼·");
-		sample.setField2("È­ÀÌÆÃ");
-		sample.setField3("¿©Çà°¡ÀÚ");
-		logger.info(sample.toString());	
-		
+		sample.setField1("ê¹€ê¸°íƒœ");
+		sample.setField2(100);
+		sample.setField3(174.3);
+		logger.info(sample.toString());
 	}
 
 }

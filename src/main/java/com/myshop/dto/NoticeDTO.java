@@ -9,6 +9,6 @@ public class NoticeDTO {
 	private String content;
 	private String author;
 	private String resdate;
-	private int readcnt;	
+	private int readcnt;
+	
 }
-

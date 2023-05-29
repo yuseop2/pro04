@@ -10,6 +10,7 @@ public interface NoticeService {
 		public void noticeInsert(NoticeDTO dto) throws Exception;
 		public void noticeDelete(int no) throws Exception;
 		public void noticeEdit(NoticeDTO dto) throws Exception;
+		public void readcnt(int no) throws Exception;
 	
 	
 	
