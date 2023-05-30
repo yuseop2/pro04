@@ -39,26 +39,26 @@ public class MemberController {
 	@Inject
 	BCryptPasswordEncoder pwdEncoder;
 	
-	//¾à°ü ÆäÀÌÁö ·Îµù
+	//ì•½ê´€ í˜ì´ì§€ ë¡œë”©
 	@GetMapping("agree.do")
 	public String getAgree(Model model) throws Exception {
 		return "member/agree";
 	}
 	
-	//È¸¿ø°¡ÀÔ Æû ·Îµù
+	//íšŒì›ê°€ì… í¼ ë¡œë”©
 	@GetMapping("join.do")
 	public String joinForm(Model model) throws Exception {
 		return "member/memberInsert";
 	}
 	
-	//¾ÆÀÌµğ Áßº¹Ã¼Å©
+	//ì•„ì´ë”” ì¤‘ë³µì²´í¬
 	@RequestMapping(value="idCheck.do", method=RequestMethod.POST)
 	public void idCheck(HttpServletResponse response, HttpServletRequest request, Model model) throws Exception {
 		String id = request.getParameter("id");
 		boolean result = false;
 		MemberDTO dto = memberService.getMember(id);
 
-		if(dto!=null){	//ÀÌ¹Ì ÀÖ´Â ¾ÆÀÌµğÀÓ
+		if(dto!=null){	//ì´ë¯¸ ìˆëŠ” ì•„ì´ë””ì„
 			result = false;
 		} else {
 			result = true;
@@ -70,22 +70,22 @@ public class MemberController {
 	}
 	
 	
-	//È¸¿ø °¡ÀÔ - È¸¿ø °¡ÀÔ Ã³¸®½Ã ¾ÏÈ£È­ÇÏ¿© ºñ¹Ğ¹øÈ£ ÀúÀå
+	//íšŒì› ê°€ì… - íšŒì› ê°€ì… ì²˜ë¦¬ì‹œ ì•”í˜¸í™”í•˜ì—¬ ë¹„ë°€ë²ˆí˜¸ ì €ì¥
 	@RequestMapping(value="insert.do", method = RequestMethod.POST)
 	public String memberWrite(MemberDTO member, Model model) throws Exception {
 		member.setPw(pwdEncoder.encode(member.getPw()));
-		logger.info("ºñ¹Ğ¹øÈ£ ¾ÏÈ£È­ : "+pwdEncoder.encode(member.getPw()));
+		logger.info("ë¹„ë°€ë²ˆí˜¸ ì•”í˜¸í™” : "+pwdEncoder.encode(member.getPw()));
 		memberService.memberInsert(member);
 		return "redirect:/";
 	}
 	
-	//·Î±×ÀÎ Æû ·Îµù (RequestMethod ±â¼úÇÏÁö ¾ÊÀ¸¸é, ±âº»ÀÌ GETÀÓ)
+	//ë¡œê·¸ì¸ í¼ ë¡œë”© (RequestMethod ê¸°ìˆ í•˜ì§€ ì•Šìœ¼ë©´, ê¸°ë³¸ì´ GETì„)
 	@RequestMapping("loginForm.do")  
 	public String memberLoginForm(Model model) throws Exception {
 		return "member/loginForm";
 	}
 	
-	//·Î±×ÀÎ 	- ÄÁÆ®·Ñ·¯¿¡¼­ ¼¼¼Ç Ã³¸®(·Î±×ÀÎ½Ã ÀúÀåµÈ ºñ¹Ğ¹øÈ£¿Í ÀÔ·ÂµÈ ºñ¹Ğ¹øÈ£¸¦ ºñ±³ - matches)
+	//ë¡œê·¸ì¸ 	- ì»¨íŠ¸ë¡¤ëŸ¬ì—ì„œ ì„¸ì…˜ ì²˜ë¦¬(ë¡œê·¸ì¸ì‹œ ì €ì¥ëœ ë¹„ë°€ë²ˆí˜¸ì™€ ì…ë ¥ëœ ë¹„ë°€ë²ˆí˜¸ë¥¼ ë¹„êµ - matches)
 	@RequestMapping(value="signin.do", method = RequestMethod.POST)
 	public String memberSignin(@RequestParam String id, @RequestParam String pw, HttpServletRequest request, RedirectAttributes rttr) throws Exception {
 		session.invalidate();
@@ -103,13 +103,13 @@ public class MemberController {
 		}
 	} 
 	
-	//·Î±×ÀÎ Æû ·Îµù (RequestMethod ±â¼úÇÏÁö ¾ÊÀ¸¸é, ±âº»ÀÌ GETÀÓ)
+	//ë¡œê·¸ì¸ í¼ ë¡œë”© (RequestMethod ê¸°ìˆ í•˜ì§€ ì•Šìœ¼ë©´, ê¸°ë³¸ì´ GETì„)
 	@RequestMapping("loginForm2.do")  
 	public String memberLoginForm2(Model model) throws Exception {
 		return "member/loginForm2";
 	}
 	
-	//·Î±×ÀÎ - Service¿¡¼­ ¼¼¼Ç Ã³¸®
+	//ë¡œê·¸ì¸ - Serviceì—ì„œ ì„¸ì…˜ ì²˜ë¦¬
 	@RequestMapping(value="login.do", method = RequestMethod.POST)
 	public String memberLogin(MemberDTO mdto, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
 		//MemberDTO member = memberService.login(mdto);
@@ -121,39 +121,39 @@ public class MemberController {
 		}
 	}
 	
-	//·Î±×ÀÎ Æû ·Îµù (RequestMethod ±â¼úÇÏÁö ¾ÊÀ¸¸é, ±âº»ÀÌ GETÀÓ)
+	//ë¡œê·¸ì¸ í¼ ë¡œë”© (RequestMethod ê¸°ìˆ í•˜ì§€ ì•Šìœ¼ë©´, ê¸°ë³¸ì´ GETì„)
 	@RequestMapping("loginForm3.do")  
 	public String memberLoginForm3(Model model) throws Exception {
 		return "member/loginForm3";
 	}
 	
-	//·Î±×ÀÎ : DAO¿¡¼­ Ã³¸®
+	//ë¡œê·¸ì¸ : DAOì—ì„œ ì²˜ë¦¬
 	@RequestMapping(value="loginCheck.do", method = RequestMethod.POST)
 	public String memberLoginCtrl(MemberDTO mdto, RedirectAttributes rttr) throws Exception {
 		session.getAttribute("member");
 		MemberDTO member = memberService.loginCheck(mdto);
 		if(member!=null) {
-			logger.info("·Î±×ÀÎ ¼º°ø");
+			logger.info("ë¡œê·¸ì¸ ì„±ê³µ");
 			session.setAttribute("member", member);
 			session.setAttribute("sid", member.getId());
-			rttr.addFlashAttribute("msg", "·Î±×ÀÎ ¼º°ø");
+			rttr.addFlashAttribute("msg", "ë¡œê·¸ì¸ ì„±ê³µ");
 			return "redirect:/";
 		} else {
-			logger.info("·Î±×ÀÎ ½ÇÆĞ");
+			logger.info("ë¡œê·¸ì¸ ì‹¤íŒ¨");
 			session.setAttribute("member", null);
 			rttr.addFlashAttribute("msg", false);
 			return "redirect:loginForm.do";
 		}
 	}
 	
-	//·Î±×¾Æ¿ô
+	//ë¡œê·¸ì•„ì›ƒ
 	@RequestMapping("logout.do")
 	public String memberLogout(HttpSession session) throws Exception {
 		session.invalidate();
 		return "redirect:/";
 	}
 	
-	//È¸¿ø¸ñ·Ï
+	//íšŒì›ëª©ë¡
 	@RequestMapping(value="list.do", method = RequestMethod.GET)
 	public String memberList(Model model) throws Exception {
 		List<MemberDTO> memberList = memberService.memberList();
@@ -161,7 +161,7 @@ public class MemberController {
 		return "member/memberList";
 	}
 	
-	/* °ü¸®ÀÚ È¸¿ø Á¤º¸ º¸±â */
+	/* ê´€ë¦¬ì íšŒì› ì •ë³´ ë³´ê¸° */
 	@RequestMapping(value="info.do", method = RequestMethod.GET)
 	public String getMember(@RequestParam String id, Model model) throws Exception {
 		MemberDTO member = memberService.getMember(id);
@@ -169,7 +169,7 @@ public class MemberController {
 		return "member/memberDetail";
 	}
 	
-	/* ÀÏ¹İÈ¸¿ø Á¤º¸º¸±â */
+	/* ì¼ë°˜íšŒì› ì •ë³´ë³´ê¸° */
 	@RequestMapping(value="read.do", method = RequestMethod.GET)
 	public String memberRead(Model model, HttpServletRequest request) throws Exception {
 		String id = (String) session.getAttribute("sid");
@@ -178,7 +178,7 @@ public class MemberController {
 		return "member/memberRead";
 	}
 	
-	//È¸¿ø Å»Åğ
+	//íšŒì› íƒˆí‡´
 	@RequestMapping("delete.do")
 	public String memberDelete(@RequestParam String id, Model model, HttpSession session) throws Exception {
 		memberService.memberDelete(id);
@@ -186,7 +186,7 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
-	//È¸¿ø Á¤º¸ º¯°æ
+	//íšŒì› ì •ë³´ ë³€ê²½
 	@RequestMapping(value="update.do", method = RequestMethod.POST)
 	public String memberUpdate(MemberDTO mdto, Model model) throws Exception {
 		String pwd = pwdEncoder.encode(mdto.getPw());
@@ -195,4 +195,3 @@ public class MemberController {
 		return "redirect:/";
 	}
 }
-

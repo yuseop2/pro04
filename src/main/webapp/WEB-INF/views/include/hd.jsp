@@ -30,8 +30,8 @@
             
      <div class="top-bar-right">
        <ul class="menu">
-        <c:if test="${empty sid }">			 <!-- 로그인폼 1.2.3 중 선택 -->
-          <li><a href="${path1 }/member/loginForm.do">로그인</a></li>	
+        <c:if test="${empty sid }">
+          <li><a href="${path1 }/member/loginForm.do">로그인</a></li>
           <li><a href="${path1 }/member/agree.do">회원가입</a></li>
         </c:if>
         <c:if test="${not empty sid }">  
@@ -39,7 +39,7 @@
           <li><a href="${path1 }/member/read.do">회원정보</a></li>
         </c:if>  
         <c:if test='${sid eq "admin"}'>
-          <li><a href="#">관리자 페이지</a></li>
+          <li><a href="${path1 }/member/list.do">회원관리</a></li>
         </c:if>  
        </ul>
      </div>

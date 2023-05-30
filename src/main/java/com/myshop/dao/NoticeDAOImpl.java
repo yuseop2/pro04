@@ -8,13 +8,12 @@ import org.springframework.stereotype.Repository;
 
 import com.myshop.dto.NoticeDTO;
 
-
 @Repository
 public class NoticeDAOImpl implements NoticeDAO {
 
 	@Autowired
 	private SqlSession sqlSession;
-
+	
 	@Override
 	public List<NoticeDTO> noticeList() throws Exception {
 		return sqlSession.selectList("notice.noticeList");
@@ -27,23 +26,21 @@ public class NoticeDAOImpl implements NoticeDAO {
 
 	@Override
 	public void noticeInsert(NoticeDTO dto) throws Exception {
-		sqlSession.insert("notice.noticeInsert",dto);		
-	}
-	
-	@Override
-	public void noticeEdit(NoticeDTO dto) throws Exception {
-		sqlSession.update("notice.noticeUpdate",dto);		
-	}
-	
-	@Override
-	public void noticeDelete(int no) throws Exception {
-		sqlSession.delete("notice.noticeDelete",no);		
+		sqlSession.insert("notice.noticeInsert", dto);
 	}
 
 	@Override
-	public void readcnt(int no) throws Exception {
-		sqlSession.update("notice.readcnt", no);
-		
+	public void noticeDelete(int no) throws Exception {
+		sqlSession.delete("notice.noticeDelete", no);
 	}
-		
+
+	@Override
+	public void noticeEdit(NoticeDTO dto) throws Exception {
+		sqlSession.update("notice.noticeEdit", dto);
+	}
+	
+	@Override
+	public void visitCount(int no) {
+		sqlSession.update("notice.countUp", no);
+	}
 }

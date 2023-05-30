@@ -41,6 +41,6 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public void readcnt(int no) throws Exception {
-		noticeDao.readcnt(no);	
+		noticeDao.visitCount(no);	
 	}
 }

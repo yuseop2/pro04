@@ -20,31 +20,31 @@ public class MemberDAOImpl implements MemberDAO {
 	@Inject
 	BCryptPasswordEncoder pwdEncoder;
 	
-	//È¸¿ø ¸ñ·Ï
+	//íšŒì› ëª©ë¡
 	@Override
 	public List<MemberDTO> memberList() throws Exception {
 		return sqlSession.selectList("member.memberList");
 	}
 
-	//È¸¿ø¼ö
+	//íšŒì›ìˆ˜
 	@Override
 	public int memberCount() throws Exception {
 		return sqlSession.selectOne("member.memberCount");
 	}
 
-	//Æ¯Á¤ È¸¿øÁ¤º¸ Á¶È¸
+	//íŠ¹ì • íšŒì›ì •ë³´ ì¡°íšŒ
 	@Override
 	public MemberDTO getMember(String id) throws Exception {
 		return sqlSession.selectOne("member.getMember", id);
 	}
 
-	//·Î±×ÀÎ : ÄÁÆ®·Ñ·¯¿¡¼­ Ã³¸®
+	//ë¡œê·¸ì¸ : ì»¨íŠ¸ë¡¤ëŸ¬ì—ì„œ ì²˜ë¦¬
 	@Override
 	public MemberDTO signIn(MemberDTO mdto) throws Exception {
 		return sqlSession.selectOne("member.signIn", mdto);
 	}
 
-	//·Î±×ÀÎ : DAO¿¡¼­ Ã³¸®
+	//ë¡œê·¸ì¸ : DAOì—ì„œ ì²˜ë¦¬
 	@Override
 	public MemberDTO loginCheck(MemberDTO mdto) throws Exception {
 		MemberDTO member = sqlSession.selectOne("member.loginCheck", mdto);
@@ -57,28 +57,27 @@ public class MemberDAOImpl implements MemberDAO {
 		return member;
 	}
 
-	//·Î±×ÀÎ : AJax·Î ·Î±×ÀÎ Ã³¸®
+	//ë¡œê·¸ì¸ : AJaxë¡œ ë¡œê·¸ì¸ ì²˜ë¦¬
 	@Override
 	public MemberDTO login(MemberDTO mdto) throws Exception {
 		return sqlSession.selectOne("member.login", mdto);
 	}
 
-	//È¸¿ø°¡ÀÔ
+	//íšŒì›ê°€ì…
 	@Override
 	public void memberInsert(MemberDTO mdto) throws Exception {
 		sqlSession.insert("member.memberInsert", mdto);
 	}
 
-	//È¸¿øÁ¤º¸ º¯°æ
+	//íšŒì›ì •ë³´ ë³€ê²½
 	@Override
 	public void memberUpdate(MemberDTO mdto) throws Exception {
 		sqlSession.update("member.memberUpdate", mdto);
 	}
 
-	//È¸¿ø Å»Åğ
+	//íšŒì› íƒˆí‡´
 	@Override
 	public void memberDelete(String id) throws Exception {
 		sqlSession.delete("member.memberDelete", id);
 	}
 }
-

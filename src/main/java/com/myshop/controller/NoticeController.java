@@ -21,7 +21,7 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
-	@GetMapping("list.do")	//  <a href="${path1 }/notice/list.do">∏Ò∑œ</a>
+	@GetMapping("list.do")	//  <a href="${path1 }/notice/list.do">Î™©Î°ù</a>
 	public String getNoticeList(Model model) throws Exception {
 		List<NoticeDTO> noticeList = noticeService.noticeList();
 		model.addAttribute("noticeList", noticeList);

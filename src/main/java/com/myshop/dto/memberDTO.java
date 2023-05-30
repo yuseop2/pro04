@@ -13,7 +13,7 @@ public class MemberDTO {
 	private String addr2;
 	private String postcode;
 	private String regdate;
+	private String birth;
 	private int pt;
 	private int visited;
 }
-

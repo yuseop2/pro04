@@ -22,37 +22,37 @@ public class MemberServiceImpl implements MemberService {
 	@Inject
 	BCryptPasswordEncoder pwdEncoder;
 	
-	//È¸¿ø ¸ñ·Ï
+	//íšŒì› ëª©ë¡
 	@Override
 	public List<MemberDTO> memberList() throws Exception {
 		return memberDao.memberList();
 	}
 
-	//È¸¿ø¼ö
+	//íšŒì›ìˆ˜
 	@Override
 	public int memberCount() throws Exception {
 		return memberDao.memberCount();
 	}
 
-	//Æ¯Á¤ È¸¿øÁ¤º¸
+	//íŠ¹ì • íšŒì›ì •ë³´
 	@Override
 	public MemberDTO getMember(String id) throws Exception {
 		return memberDao.getMember(id);
 	}
 
-	//·Î±×ÀÎ : ÄÁÆ®·Ñ·¯¿¡¼­ ·Î±×ÀÎ Ã³¸®
+	//ë¡œê·¸ì¸ : ì»¨íŠ¸ë¡¤ëŸ¬ì—ì„œ ë¡œê·¸ì¸ ì²˜ë¦¬
 	@Override
 	public MemberDTO signIn(MemberDTO mdto) throws Exception {
 		return memberDao.signIn(mdto);
 	}
 
-	//·Î±×ÀÎ : DAO¿¡¼­ ·Î±×ÀÎ Ã³¸®
+	//ë¡œê·¸ì¸ : DAOì—ì„œ ë¡œê·¸ì¸ ì²˜ë¦¬
 	@Override
 	public MemberDTO loginCheck(MemberDTO mdto) throws Exception {
 		return memberDao.loginCheck(mdto);
 	}
 
-	//·Î±×ÀÎ : AJax·Î ¼­ºñ½º¿¡¼­ ·Î±×ÀÎ Ã³¸®
+	//ë¡œê·¸ì¸ : AJaxë¡œ ì„œë¹„ìŠ¤ì—ì„œ ë¡œê·¸ì¸ ì²˜ë¦¬
 	@Override
 	public boolean login(HttpServletRequest req) throws Exception {
 		boolean loginSuccess = false;
@@ -70,22 +70,21 @@ public class MemberServiceImpl implements MemberService {
 		return loginSuccess;
 	}
 
-	//È¸¿ø °¡ÀÔ
+	//íšŒì› ê°€ì…
 	@Override
 	public void memberInsert(MemberDTO mdto) throws Exception {
 		memberDao.memberInsert(mdto);
 	}
 
-	//È¸¿øÁ¤º¸ ¼öÁ¤
+	//íšŒì›ì •ë³´ ìˆ˜ì •
 	@Override
 	public void memberUpdate(MemberDTO mdto) throws Exception {
 		memberDao.memberUpdate(mdto);
 	}
 
-	//È¸¿ø Å»Åğ
+	//íšŒì› íƒˆí‡´
 	@Override
 	public void memberDelete(String id) throws Exception {
 		memberDao.memberDelete(id);
 	}
 }
-

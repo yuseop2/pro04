@@ -10,16 +10,16 @@ public class LoginCheckIntercepter extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		//¼¼¼ÇÀÌ ÀÖ´Â °æ¿ì¸¸ servlet-context.xmlÀÇ interceptor¿¡ ±âÀçµÈ ³»¿ë Á¢±ÙÀÌ °¡´ÉÇÔ.
+		//ì„¸ì…˜ì´ ìˆëŠ” ê²½ìš°ë§Œ servlet-context.xmlì˜ interceptorì— ê¸°ì¬ëœ ë‚´ìš© ì ‘ê·¼ì´ ê°€ëŠ¥í•¨.
 		boolean flag = false;
 		HttpSession session = request.getSession(false);
-		//¼¼¼ÇÀÌ ÀÖ´Â(·Î±×ÀÎÇÑ) °æ¿ì true, ¼¼¼ÇÀÌ ¾ø´Â(·Î±×ÀÎÀ» ÇÏÁö ¾ÊÀº) °æ¿ì false
+		//ì„¸ì…˜ì´ ìˆëŠ”(ë¡œê·¸ì¸í•œ) ê²½ìš° true, ì„¸ì…˜ì´ ì—†ëŠ”(ë¡œê·¸ì¸ì„ í•˜ì§€ ì•Šì€) ê²½ìš° false
 		if(session!=null&&session.getAttribute("member")!=null){
 			flag=true;
-			System.out.println("**ÇÚµé·¯ ÀÎÅÍ¼ÁÅÍ ½ÇÇà**"+request.getRequestURI());
+			System.out.println("**í•¸ë“¤ëŸ¬ ì¸í„°ì…‰í„° ì‹¤í–‰**"+request.getRequestURI());
 		} else {
 			flag=false;
-			System.out.println("ÇÚµé·¯ ÀÎÅÍ¼ÁÅÍ : ¼¼¼ÇÀÌ ¸¸·áµÇ¾î homeÀ¸·Î ¸®´ÙÀÌ·ºÆ®");
+			System.out.println("í•¸ë“¤ëŸ¬ ì¸í„°ì…‰í„° : ì„¸ì…˜ì´ ë§Œë£Œë˜ì–´ homeìœ¼ë¡œ ë¦¬ë‹¤ì´ë ‰íŠ¸");
 			response.sendRedirect("../member/loginForm.do");
 		}
 		return flag;

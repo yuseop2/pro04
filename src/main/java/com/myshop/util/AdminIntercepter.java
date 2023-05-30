@@ -8,27 +8,27 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class AdminIntercepter extends HandlerInterceptorAdapter {
-    //¸ŞÀÎ ¾×¼ÇÀÌ ½ÇÇàµÇ±â Àü
+    //ë©”ì¸ ì•¡ì…˜ì´ ì‹¤í–‰ë˜ê¸° ì „
     @Override
     public boolean preHandle(HttpServletRequest request
             , HttpServletResponse response, Object handler) 
                     throws Exception {
-        HttpSession session = request.getSession();          //¼¼¼Ç °´Ã¼ »ı¼º
+        HttpSession session = request.getSession();          //ì„¸ì…˜ ê°ì²´ ìƒì„±
         String sid = (String) session.getAttribute("sid");
-        if(session.getAttribute("sid")==null) {          //¼¼¼ÇÀÌ ¾øÀ¸¸é(·Î±×ÀÎµÇÁö ¾ÊÀº »óÅÂ)
-            response.sendRedirect("/");			            //¸ŞÀÎ ÆäÀÌÁö·Î ÀÌµ¿
+        if(session.getAttribute("sid")==null) {          //ì„¸ì…˜ì´ ì—†ìœ¼ë©´(ë¡œê·¸ì¸ë˜ì§€ ì•Šì€ ìƒíƒœ)
+            response.sendRedirect("/");			            //ë©”ì¸ í˜ì´ì§€ë¡œ ì´ë™
             return false; 
         }
         
         if(sid.equals("admin")) {
-            return true; //¸ŞÀÎ ¾×¼ÇÀ¸·Î ÀÌµ¿(¸ÅÇÎµÈ url)
+            return true; //ë©”ì¸ ì•¡ì…˜ìœ¼ë¡œ ì´ë™(ë§¤í•‘ëœ url)
         } else {
-            response.sendRedirect("/");   //¸ŞÀÎ ÆäÀÌÁö·Î ÀÌµ¿
+            response.sendRedirect("/");   //ë©”ì¸ í˜ì´ì§€ë¡œ ì´ë™
             return false; 
         }
     }
     @Override
-    public void postHandle(HttpServletRequest request  //¸ŞÀÎ ¾×¼ÇÀÌ ½ÇÇàµÈ ÈÄ
+    public void postHandle(HttpServletRequest request  //ë©”ì¸ ì•¡ì…˜ì´ ì‹¤í–‰ëœ í›„
             , HttpServletResponse response, Object handler,
             ModelAndView modelAndView) throws Exception {
         super.postHandle(request, response, handler, modelAndView);

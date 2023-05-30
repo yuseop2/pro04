@@ -13,21 +13,21 @@ public class JDBCConn {
 	static {
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
-		} catch (ClassNotFoundException e) {			
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-	}	
+	}
 	@Test
 	public void testJDBC() {
 		try {
-		Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3308/myshop?serverTimezone=Asia/Seoul","root","1234");
-		if(conn!=null) {
-			logger.info("¸¶¸®¾Æ DB ¿¬°á¼º°ø");
-		} else {
-			logger.info("¸¶¸®¾Æ DB ¿¬°á½ÇÆÐ");
+			Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3308/myshop?serverTimezone=Asia/Seoul","root","1234");
+			if(conn!=null) {
+				logger.info("ë§ˆë¦¬ì•„ DB ì—°ê²° ì„±ê³µ");
+			} else {
+				logger.info("ë§ˆë¦¬ì•„ DB ì—°ê²° ì‹¤íŒ¨");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-	} catch (SQLException e){
-		e.printStackTrace();
-	}
 	}
 }
