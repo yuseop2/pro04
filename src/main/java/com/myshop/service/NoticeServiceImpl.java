@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.myshop.dao.NoticeDAO;
 import com.myshop.dto.NoticeDTO;
 
-
 @Service
 public class NoticeServiceImpl implements NoticeService {
 
@@ -17,32 +16,31 @@ public class NoticeServiceImpl implements NoticeService {
 	
 	@Override
 	public List<NoticeDTO> noticeList() throws Exception {
-		return noticeDao.noticeList() ;
+		return noticeDao.noticeList();
 	}
 
 	@Override
 	public NoticeDTO noticeDetail(int no) throws Exception {
-		return noticeDao.noticeDetail(no) ;
+		return noticeDao.noticeDetail(no);
 	}
 
 	@Override
 	public void noticeInsert(NoticeDTO dto) throws Exception {
-		noticeDao.noticeInsert(dto) ;
-		
+		noticeDao.noticeInsert(dto);
 	}
 
 	@Override
 	public void noticeDelete(int no) throws Exception {
-		noticeDao.noticeDelete(no) ;
-		
+		noticeDao.noticeDelete(no);
 	}
 
 	@Override
 	public void noticeEdit(NoticeDTO dto) throws Exception {
-		noticeDao.noticeEdit(dto) ;
-		
+		noticeDao.noticeEdit(dto);
 	}
-	
-	
-	
+
+	@Override
+	public void readcnt(int no) throws Exception {
+		noticeDao.readcnt(no);	
+	}
 }
