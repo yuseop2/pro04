@@ -7,39 +7,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>공지사항 상세보기</title>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>글 상세보기</title>
+    <!-- 헤드 부분 인클루드 -->
+    <jsp:include page="../include/head.jsp"></jsp:include>
 </head>
 <body>
-	<table class="table">
-		<tbody>				
-			<tr>
-				<th>글 번호</th>
-				<td>${notice.no }</td>
-			</tr>
-			<tr>
-				<th>제목</th>
-				<td>${notice.title }</td>
-			</tr>
-			<tr>
-				<th>내용</th>
-				<td>${notice.content }</td>
-			</tr>
-			<tr>
-				<th>작성자</th>
-				<td>${notice.author }</td>
-			</tr>
-			<tr>
-				<th>작성 일시</th>
-				<td>${notice.resdate }</td>
-			</tr>
-			<tr>
-				<th>조회 수</th>
-				<td>${notice.readcnt }</td>
-			</tr>				
-		</tbody>
-	</table>	
-	<a href="${path1 }/notice/list.do">글 목록으로</a>
-	<a href="/">메인으로</a>
+	<header id="header">
+		<!-- 헤더 부분 인클루드 -->
+	 	<jsp:include page="../include/hd.jsp"></jsp:include>
+    </header>
+	
+	<div class="content" id="content">
+	    <div class="row column text-center">
+	      <h2 class="h1">글 상세보기</h2>
+	      <hr>
+	      <div class="container">
+				<table class="table">
+					<tbody>
+						<tr>
+							<th>글 번호</th>
+							<td>${notice.no }</td>
+						</tr>
+						<tr>
+							<th>글 제목</th>
+							<td>${notice.title }</td>
+						</tr>
+						<tr>
+							<th>글 내용</th>
+							<td>${notice.content }</td>
+						</tr>
+						<tr>
+							<th>글 작성자</th>
+							<td>${notice.author }</td>
+						</tr>
+						<tr>
+							<th>작성일시</th>
+							<td>${notice.resdate }</td>
+						</tr>
+						<tr>
+							<th>조회수</th>
+							<td>${notice.visited }</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<a href="${path1 }/notice/list.do" class="button" >글 목록</a>
+								<a href="${path1 }/notice/edit.do?no=${notice.no }" class="button" >글 수정</a>
+								<a href="${path1 }/notice/delete.do?no=${notice.no }" class="button" >글 삭제</a>
+								<a href="${path1 }" class="button" >메인으로</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+ 			</div>
+	    </div>
+	</div>
+    <footer id="footer" class="footer-nav row expanded collapse">
+    	<!-- 푸터 부분 인클루드 -->
+    	<jsp:include page="../include/ft.jsp"></jsp:include>
+    </footer>
 </body>
 </html>

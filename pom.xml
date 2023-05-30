@@ -83,7 +83,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- @Inject : 의존성 주입할때 씀-->	
+		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
@@ -114,14 +114,15 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
+			<scope>test</scope>
 		</dependency>   
 		
 		<!-- 스프링 테스트 도구 -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-test</artifactId>
-		    <version>${org.springframework-version}</version>		    
-		</dependency>
+		    <version>${org.springframework-version}</version>
+		</dependency>	
 				
 		<!-- 스프링 maven-war 도구 -->				
 		<dependency>
@@ -243,6 +244,21 @@
 		</dependency>
 		
 		<!-- spring-security core, web, config -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-core</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-web</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-config</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
 		
 		<!-- 파일 첨부 라이브러리  -->
 		<dependency>

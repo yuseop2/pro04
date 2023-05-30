@@ -10,7 +10,7 @@
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>공지사항 목록</title>
+	<title>글 등록</title>
     <!-- 헤드 부분 인클루드 -->
     <jsp:include page="../include/head.jsp"></jsp:include>
 </head>
@@ -22,28 +22,33 @@
 	
 	<div class="content" id="content">
 	    <div class="row column text-center">
-	      <h2 class="h1">공지사항 목록</h2>
+	      <h2 class="h1">글 등록</h2>
 	      <hr>
 	      <div class="container">
-				<table class="table">
-					<thead>
-						<tr><th>연번</th><th>제목</th><th>작성자</th></tr>
-					</thead>
-					<tbody>
-						<c:forEach var="notice" items="${noticeList }" varStatus="status">
-						<tr><td>${notice.no }</td>
-						<td><a href="${path1 }/notice/detail.do?no=${notice.no }">${notice.title }</a></td>
-						<td>${notice.author }</td></tr>
-						</c:forEach>
-						<tr>
-							<td colspan="3">
-								<a href="javascript:history.go(-1)" class="button" >뒤로 가기</a>
-								<a href="${path1 }/notice/insert.do" class="button" >글 등록</a>
-							</td>
-						</tr>
-					</tbody>
-				</table>		 
-			</div>
+				<form action="${path1 }/notice/insert.do" method="post">
+					<table class="table">
+						<tbody>
+							<tr>
+								<th>글 제목</th>
+								<td><input type="text" name="title" id="title"></td>
+							</tr>
+							<tr>
+								<th>글 내용</th>
+								<td>
+									<textarea name="content" id="content" cols="100" rows="8"></textarea>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<input type="submit" value="글 등록" class="submit success button">
+									<a href="${path1 }/notice/list.do" class="success button" >글 목록</a>
+									<a href="${path1 }" class="button">메인으로</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+ 			</div>
 	    </div>
 	</div>
     <footer id="footer" class="footer-nav row expanded collapse">
