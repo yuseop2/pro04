@@ -78,4 +78,3 @@ public class NoticeController {
 		return "redirect:list.do";
 	}
 }
-
