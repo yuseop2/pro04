@@ -16,17 +16,18 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class MybatisTest {
 	private static final Logger logger = LoggerFactory.getLogger(MybatisTest.class);
 	
-	//
+	//의존성 주입
 	@Inject
     private SqlSessionFactory sqlFactory;
     
     @Test
     public void testFactory(){
         logger.info("sqlFactory : "+sqlFactory);
-    }    
+    }
     
     @Test
-    public void testSession() throws Exception{        
+    public void testSession() throws Exception{
+        
         try(SqlSession session = sqlFactory.openSession()){           
             logger.info("MyBatis Connection success! session  : "+session);           
         } catch (Exception e) {

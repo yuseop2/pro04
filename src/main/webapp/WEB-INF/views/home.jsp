@@ -5,15 +5,23 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Home</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>유섭 쇼핑몰</title>
+	<!-- 헤드 부분 인클루드 -->
+    <jsp:include page="./include/head.jsp"></jsp:include>
 </head>
 <body>
-
-<a href="notice/list.do">공지사항 목록</a>
-<h1>
-	Panda Shop
-</h1>
-
-<P>  The time on the server is ${serverTime}. </P>
+<header id="header">
+	<!-- 헤더 부분 인클루드 -->
+ 	<jsp:include page="./include/hd.jsp"></jsp:include>
+</header>
+<div class="content container" id="content" style="min-height:500px;">
+	<h2 class="title">메인 화면</h2>
+</div>
+<footer id="footer" class="footer-nav row expanded collapse">
+	<!-- 푸터 부분 인클루드 -->
+	<jsp:include page="./include/ft.jsp"></jsp:include>
+</footer>
 </body>
 </html>

@@ -5,13 +5,11 @@ import java.util.List;
 import com.myshop.dto.NoticeDTO;
 
 public interface NoticeService {
-		public List<NoticeDTO> noticeList() throws Exception;
-		public NoticeDTO noticeDetail(int no) throws Exception;
-		public void noticeInsert(NoticeDTO dto) throws Exception;
-		public void noticeDelete(int no) throws Exception;
-		public void noticeEdit(NoticeDTO dto) throws Exception;
-		public void readcnt(int no) throws Exception;
-	
-	
-	
+
+	public List<NoticeDTO> noticeList() throws Exception;
+	public NoticeDTO noticeDetail(int no) throws Exception;
+	public void noticeInsert(NoticeDTO dto) throws Exception;
+	public void noticeDelete(int no) throws Exception;
+	public void noticeEdit(NoticeDTO dto) throws Exception;
+	public void readcnt(int no) throws Exception;
 }
