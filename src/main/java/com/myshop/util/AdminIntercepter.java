@@ -26,7 +26,8 @@ public class AdminIntercepter extends HandlerInterceptorAdapter {
             response.sendRedirect("/");   //메인 페이지로 이동
             return false; 
         }
-    }
+    }    
+    
     @Override
     public void postHandle(HttpServletRequest request  //메인 액션이 실행된 후
             , HttpServletResponse response, Object handler,

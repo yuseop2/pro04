@@ -38,13 +38,13 @@
 		var idReg = /^[a-z0-9]{5,12}$/g;  //아이디 정규표현식
 		if(!idReg.test(id)){
 			alert("아이디 입력 형식이 아닙니다.");
-			return;
+			return false;
 		}
 		
 		var pwReg = /^[a-zA-Z0-9]{8,12}$/g; //비밀번호 정규표현식
 		if(!pwReg.test(pw)){
 			alert("비밀번호 입력 형식이 아닙니다.");
-			return;
+			return false;
 		}
 	}
 	</script>

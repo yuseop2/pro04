@@ -17,13 +17,30 @@
 <body>
 	<h2>FORM 유효성 검사6</h2>
 	<form:form action="${path1 }/check/check6.do" method="post" modelAttribute="memberVO">
-	    <form:input path="id"/>
-	    <form:errors path="id" element="div" delimiter=" "/>
-	
-	    <form:password path="pw"/>
-	    <form:errors path="pw" element="div" delimiter=" "/>
-	
-	    <button class="btn" type="submit"> 전송 </button>
+	    <table>		    	
+	    	<tbody>	
+	    		<tr>
+	    			<th>ID</th>
+	    			<td>
+	    				<form:input path="id" />
+	     				<form:errors path="id" element="div" delimiter=" " />
+	    			</td>
+	    		</tr>
+	    		<tr>
+	    			<th>PW</th>
+	    			<td>
+	    				 <form:password path="pw"/>
+	   					 <form:errors path="pw" element="div" delimiter=" " />
+	    			</td>
+	    		</tr>
+	    		<tr>
+					<td colspan="2">
+						<input type="submit" value="로그인" class="btn btn-primary"/>
+						<input type="reset" value="취소" class="btn btn-primary"/>					
+					</td>
+				</tr>
+			</tbody>		
+	    </table>
 	</form:form>
 </body>
 </html>
