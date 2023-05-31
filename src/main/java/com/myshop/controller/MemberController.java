@@ -29,7 +29,7 @@ import com.myshop.service.MemberService;
 public class MemberController {
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
-	
+
 	@Autowired
 	MemberService memberService;
 	
@@ -94,9 +94,10 @@ public class MemberController {
 		mdto.setId(id);	//mdto.setPw(request.getParameter("id"));
 		MemberDTO login = memberService.signIn(mdto);
 		boolean loginSuccess = pwdEncoder.matches(mdto.getPw(), login.getPw());
+		
 		if(login!=null && loginSuccess) {
 			session.setAttribute("member", login);
-			session.setAttribute("sid", id);
+			session.setAttribute("sid", id);		
 			return "redirect:/";
 		} else {			
 			return "redirect:loginForm.do";
