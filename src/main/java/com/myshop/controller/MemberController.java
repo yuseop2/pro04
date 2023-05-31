@@ -98,9 +98,9 @@ public class MemberController {
 			session.setAttribute("member", login);
 			session.setAttribute("sid", id);
 			return "redirect:/";
-		} else {
+		} else {			
 			return "redirect:loginForm.do";
-		}
+		}			
 	} 
 	
 	//로그인 폼 로딩 (RequestMethod 기술하지 않으면, 기본이 GET임)
